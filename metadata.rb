@@ -1,6 +1,6 @@
 name 'chef-provisioning-vagrant-helper'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Irving Popovetsky'
+maintainer_email 'irving@chef.io'
 license 'all_rights'
 description 'Installs/Configures chef-provisioning-vagrant-helper'
 long_description 'Installs/Configures chef-provisioning-vagrant-helper'

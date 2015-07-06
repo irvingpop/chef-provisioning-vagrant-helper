@@ -50,7 +50,7 @@ machine "mario" do
         default: 'dhcp',
         cluster_ip: '33.33.33.10'
       }
-    }
+    })
 end
 
 ```
