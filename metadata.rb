@@ -1,0 +1,7 @@
+name 'chef-provisioning-vagrant-helper'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures chef-provisioning-vagrant-helper'
+long_description 'Installs/Configures chef-provisioning-vagrant-helper'
+version '0.1.0'
