@@ -15,7 +15,8 @@
 
 module VagrantConfigHelper
 
-  def vagrant_options(vmname = 'default.example.com', config = {})
+  def vagrant_options(vmname = 'default.example.com', params = {})
+    config = params[:config] || {}
     {
       :vagrant_options => {
         'vm.box' => config[:box] || node['chef-provisioning-vagrant']['vbox']['box'],

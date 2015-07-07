@@ -1,7 +1,7 @@
 
 include_recipe 'chef-provisioning-vagrant-helper::default'
 
-machine "mario" do
+machine 'mario' do
   recipe 'mario::default'
-  machine_options vagrant_options("mario.example.com")
+  machine_options vagrant_options('mario.example.com')
 end
