@@ -4,7 +4,7 @@
 default['chef-provisioning-vagrant']['chef_repo'] = Chef::Config[:chef_repo_path]
 default['chef-provisioning-vagrant']['vagrants_dir'] = ::File.join(Chef::Config[:chef_repo_path], 'vagrants')
 default['chef-provisioning-vagrant']['vendor_cookbooks_path'] = ::File.join(Chef::Config[:chef_repo_path], 'vendor')
-
+default['chef-provisioning-vagrant']['use_local_chef_server'] = true
 # machine details
 default['chef-provisioning-vagrant']['vbox']['box'] = 'opscode-ubuntu-14.04'
 default['chef-provisioning-vagrant']['vbox']['box_url'] = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'

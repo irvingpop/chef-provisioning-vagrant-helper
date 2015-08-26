@@ -15,6 +15,8 @@ log "[chef-provisioning-vagrant] Your vagrantfiles will be located in: #{vagrant
 directory vagrants_dir
 vagrant_cluster vagrants_dir
 
-with_chef_local_server :chef_repo_path => node['chef-provisioning-vagrant']['chef_repo'],
-  :cookbook_path => [ node['chef-provisioning-vagrant']['vendor_cookbooks_path'] ],
-  :port => 9010.upto(9999)
+if node['chef-provisioning-vagrant']['use_local_chef_server'] == true
+  with_chef_local_server :chef_repo_path => node['chef-provisioning-vagrant']['chef_repo'],
+    :cookbook_path => [ node['chef-provisioning-vagrant']['vendor_cookbooks_path'] ],
+    :port => 9010.upto(9999)
+end
