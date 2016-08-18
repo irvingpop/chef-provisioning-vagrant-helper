@@ -34,8 +34,8 @@ describe 'test::default' do
       expect(chef_run).to converge_machine('mario')
         .with(machine_options: {
           :vagrant_options => {
-            "vm.box" => "opscode-ubuntu-14.04",
-            "vm.box_url" => "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box",
+            "vm.box" => "bento/ubuntu-14.04",
+            "vm.box_url" => nil,
             "vm.hostname" => "mario.example.com"
           },
           :vagrant_config=> <<-ENDCONFIG
@@ -49,6 +49,10 @@ describe 'test::default' do
         '--usb', 'off',
         '--usbehci', 'off'
       ]
+    end
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+      config.cache.enable :generic, { :cache_dir => "/var/chef/cache" }
     end
           ENDCONFIG
         }
@@ -72,8 +76,8 @@ it 'converges the machine with the correct machine_options' do
       expect(chef_run).to converge_machine('mario')
         .with(machine_options: {
           :vagrant_options => {
-            "vm.box" => "opscode-ubuntu-15.04",
-            "vm.box_url" => "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box",
+            "vm.box" => "bento/ubuntu-16.04",
+            "vm.box_url" => nil,
             "vm.hostname" => "mario.example.com"
           },
           :vagrant_config=> <<-ENDCONFIG
@@ -90,6 +94,10 @@ it 'converges the machine with the correct machine_options' do
     end
     config.vm.network 'private_network', type: 'dhcp'
     config.vm.network 'private_network', ip: "33.33.33.10"
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+      config.cache.enable :generic, { :cache_dir => "/var/chef/cache" }
+    end
           ENDCONFIG
         }
         )
