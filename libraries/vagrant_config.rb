@@ -64,6 +64,15 @@ module VagrantConfigHelper
       end
     end
 
+    if config[:chef_cache] == true || node['chef-provisioning-vagrant']['vbox']['chef_cache'] == true
+        vagrant_config += <<-ENDCONFIG
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+      config.cache.enable :generic, { :cache_dir => "/var/chef/cache" }
+    end
+        ENDCONFIG
+    end
+
     vagrant_config
   end
 end

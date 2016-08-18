@@ -10,6 +10,7 @@ default['chef-provisioning-vagrant']['vbox']['box'] = 'opscode-ubuntu-14.04'
 default['chef-provisioning-vagrant']['vbox']['box_url'] = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
 default['chef-provisioning-vagrant']['vbox']['ram'] = 512
 default['chef-provisioning-vagrant']['vbox']['cpus'] = 1
+default['chef-provisioning-vagrant']['vbox']['chef_cache'] = true
 
 default['chef-provisioning-vagrant']['vbox']['private_networks'] = {}
 # provide a list of private network interfaces to provisioning

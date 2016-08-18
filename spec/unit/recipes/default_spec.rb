@@ -50,6 +50,10 @@ describe 'test::default' do
         '--usbehci', 'off'
       ]
     end
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+      config.cache.enable :generic, { :cache_dir => "/var/chef/cache" }
+    end
           ENDCONFIG
         }
         )
@@ -90,6 +94,10 @@ it 'converges the machine with the correct machine_options' do
     end
     config.vm.network 'private_network', type: 'dhcp'
     config.vm.network 'private_network', ip: "33.33.33.10"
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+      config.cache.enable :generic, { :cache_dir => "/var/chef/cache" }
+    end
           ENDCONFIG
         }
         )
